@@ -35,13 +35,15 @@ namespace Assignment2
             for (int i = 0; i + 2 < data.Length; i += 3)
             {
                 char[] buffer = new char[BUFFER_SIZE] { data[i], data[i + 1], data[i + 2] };
-                string encoded = encodeBuffer(buffer, 4);
-                sb.Append(encoded);
+
+                sb.Append(encodeBuffer(buffer, 4));
             }
 
             char[] lastBuffer = new char[BUFFER_SIZE] { '0', '0', '0' };
             switch (data.Length % BUFFER_SIZE)
             {
+                case 0:
+                    break;
                 case 1:
                     lastBuffer[0] = data[data.Length - 1];
 
